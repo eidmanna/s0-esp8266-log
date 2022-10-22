@@ -1,5 +1,4 @@
-# s0 data logger esp8266
-## s0-esp8266-log
+# s0 data logger esp8266 s0-esp8266-log
 
 ## hardware
 
