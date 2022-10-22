@@ -21,7 +21,7 @@ String navigation()
 {
   String content = "";
   content+= "<div><a href='/' class='w3-button w3-orange'>Home</a></div>\n";
-  content+= "<div><a href='/ertrag.html' class='w3-button w3-orange'>Ertrag</a></div>\n";
+  content+= "<div><a href='/ertrag.html' class='w3-button w3-orange'>Verbrauch</a></div>\n";
   content+= "<div><a href='/setup.html' class='w3-button w3-orange'>Setup</a></div>\n";
   content+= "<div><a href='/spiffs.html' class='w3-button w3-orange'>SPIFFS</a></div>\n";
   content+= "<div><a href='/update' class='w3-button w3-orange'>Update</a></div>\n";

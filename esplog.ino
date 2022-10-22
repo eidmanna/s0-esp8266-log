@@ -160,6 +160,7 @@ void timerCallback(void *pArg) {
 #endif
 
 void IRAM_ATTR interruptRoutineFalling() {
+  
   static unsigned long lastIntTime = 0;
   unsigned long intTime = millis();
   // Wenn Interrupts schneller als 25 ms sind ist es 
@@ -168,6 +169,7 @@ void IRAM_ATTR interruptRoutineFalling() {
   {
     tickDetected = true;
     counter++;
+    lastIntTime = intTime;
   }
 }
 
