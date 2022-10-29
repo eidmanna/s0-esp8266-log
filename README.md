@@ -14,3 +14,9 @@ thx:
 https://www.frank-schuetz.de/index.php/blog/19-esplog-ein-s0-datenlogger-fuer-solaranlgen
 
 
+* secret
+
+secret.ino.xxx  rename --> secret.ino
+set: WLAN SID and PW
+
+
