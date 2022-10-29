@@ -38,6 +38,7 @@
 #include <EasyNTPClient.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266HTTPUpdateServer.h>
+#include <PubSubClient.h>
 #include <TimeLib.h>
 #include <EEPROM.h>
 //#include <ArduinoJson.h>
@@ -77,8 +78,11 @@ extern "C" {
 
 // Netzwerk Vorgaben
 const char* host = "ESPLog";
-const char *ssid[] = {"Telematica WLAN 6D4C","SSID2"};
-const char *password[] = {"73508192528665153033","Passwd2"};
+
+
+// MQTT Server
+WiFiClient espClient;
+PubSubClient client(espClient);
 
 // FHEM Netzwerk Host
 byte fhemHost[] = {0,0,0,0};
