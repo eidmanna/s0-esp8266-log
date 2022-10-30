@@ -5,6 +5,12 @@
 void loop()
 {
   flashLed(false);
+
+  // mqtt
+  if (!mqttClient.connected()) {
+    reconnect();
+  }
+  mqttClient.loop();
   
   if (millis() - waitTime > 1000) 
   {
@@ -13,6 +19,11 @@ void loop()
     // status LED
     int state = digitalRead(LED_BUILTIN); 
     digitalWrite(LED_BUILTIN, !state);
+
+    // every 20 sec
+    if( second() % 20 == 0) {
+      sendMQTT();
+    }
     
     // every minute
     if( second() == 0 )
@@ -76,7 +87,7 @@ void loop()
         {
           FuenfMinutenTimer(today.month, today.day);
           // CreateSensorString (); // Daten an den FHEM Controller senden
-          
+                    
           if( hour(t) == 23 && minute(t) == 55 )
           {
             yesterday.year = today.year;

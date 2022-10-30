@@ -27,6 +27,7 @@ void setupWifi()
     }
   }
   WiFi.hostname(host);
+  randomSeed(micros());
   spn("Done");
   sp("IP address: ");
   spn(WiFi.localIP());
@@ -113,15 +114,15 @@ void setupHttpServer()
 // ########################################################################################
 void setupStructAusgabe()
 {
-  strcpy( ausgabe[0].realName, "Tagesertrag");
+  strcpy( ausgabe[0].realName, "Tagesverbrauch");
   //dtostrf(0, 2, 0, ausgabe[0].printValue);
   strcpy( ausgabe[0].unit, " kWh" );
   
-  strcpy( ausgabe[1].realName, "Monatsertrag");
+  strcpy( ausgabe[1].realName, "Monatsverbrauch");
   //dtostrf(0, 2, 0, ausgabe[1].printValue);
   strcpy( ausgabe[1].unit, " kWh" );
   
-  strcpy( ausgabe[2].realName, "Jahresertrag");
+  strcpy( ausgabe[2].realName, "Jahresverbrauch");
   //dtostrf(0, 2, 0, ausgabe[2].printValue);
   strcpy( ausgabe[2].unit, " kWh" );
   
@@ -137,7 +138,7 @@ void setupStructAusgabe()
   dtostrf(0, 2, 0, ausgabe[5].printValue);
   strcpy( ausgabe[5].unit, " W" );
   
-  strcpy( ausgabe[6].realName, "Einspeiseleistung");
+  strcpy( ausgabe[6].realName, "Leistung");
   dtostrf(0, 2, 0, ausgabe[6].printValue);
   strcpy( ausgabe[6].unit, " W" );
   

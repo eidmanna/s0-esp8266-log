@@ -19,4 +19,7 @@ https://www.frank-schuetz.de/index.php/blog/19-esplog-ein-s0-datenlogger-fuer-so
 secret.ino.xxx  rename --> secret.ino
 set: WLAN SID and PW
 
+* mqtt
+https://www.smarthome-tricks.de/allgemein/nodemcu-esp8266-sensoren-an-iobroker-ueber-mqtt/
+
 

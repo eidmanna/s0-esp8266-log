@@ -82,7 +82,7 @@ const char* host = "ESPLog";
 
 // MQTT Server
 WiFiClient espClient;
-PubSubClient client(espClient);
+PubSubClient mqttClient(espClient);
 
 // FHEM Netzwerk Host
 byte fhemHost[] = {0,0,0,0};
@@ -201,6 +201,7 @@ void setup()
   setupStructAusgabe ();
   setupEeprom ();
   setupHttpServer ();
+  setupMQTT();
 
   write2logfile("ESPLog gestartet");
   

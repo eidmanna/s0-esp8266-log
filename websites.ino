@@ -45,7 +45,7 @@ void contentOutput(String content)
 
 void handleRoot()   
 { 
-  char queryRealName[7][20] = {"Tagesertrag","Jahresertrag","Spezifisch","Einspeiseleistung","Maximal","Voltage","RSSI"};
+  char queryRealName[7][20] = {"Tagesverbrauch","Jahresverbrauch","Monatsverbrauch","Leistung","Maximal","Voltage","RSSI"};
     
   String divRow = "<div class='row'>";
   String divlP =  "<div class='lP'>";
