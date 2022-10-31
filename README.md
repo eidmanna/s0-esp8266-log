@@ -16,7 +16,7 @@ https://www.frank-schuetz.de/index.php/blog/19-esplog-ein-s0-datenlogger-fuer-so
 
 * secret
 
-secret.ino.xxx  rename --> secret.ino
+asecret.ino.xxx  rename --> asecret.ino
 set: WLAN SID and PW
 
 * mqtt
