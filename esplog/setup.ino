@@ -100,6 +100,9 @@ void setupHttpServer()
 
   server.on("/upload", HTTP_POST, [](){}, handleFileUpload);   // SPIFFS upload
   
+  server.serveStatic("/index.html", SPIFFS, "/index.html");
+  server.serveStatic("/index.js", SPIFFS, "/index.js");
+
   server.serveStatic("/screen.css", SPIFFS, "/screen.css");
   server.serveStatic("/mobile.css", SPIFFS, "/mobile.css");
   server.serveStatic("/backup.csv", SPIFFS, "/backup.csv");

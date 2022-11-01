@@ -1,3 +1,7 @@
-esplog.ino.nodemcu.bin
+esplog/esplog.ino.nodemcu.bin
 .vscode/*
-asecret.ino
+esplog/asecret.ino
+node_modules/*
+esplog/data/index.js
+esplog/data/index.html
+dist/*

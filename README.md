@@ -22,4 +22,10 @@ set: WLAN SID and PW
 * mqtt
 https://www.smarthome-tricks.de/allgemein/nodemcu-esp8266-sensoren-an-iobroker-ueber-mqtt/
 
+* develop svelte UI
 
+** install node.js
+** npm install
+** npm run dev fpr development
+** npm run build
+** copy data (index.html,index.js) to esp8266
