@@ -82,6 +82,7 @@ void setupHttpServer()
 {
   server.on("/", handleRoot);               // Startseite
   server.on("/V", handleJsonArgs);          // Anfrage von sonnenertrag.eu bearbeiten
+  server.on("/data", handleJsonData);
   server.on("/ertrag.html", handleViewErtrag); // Tageserträge als Array ausgeben
    
   server.on("/setup.html", []() {

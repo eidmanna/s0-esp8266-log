@@ -22,7 +22,9 @@ void loop()
 
     // every 20 sec
     if( second() % 20 == 0) {
-      sendMQTT();
+      #if (DEBUG == 0)
+        sendMQTT();
+      #endif
     }
     
     // every minute

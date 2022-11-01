@@ -43,13 +43,14 @@
 #include <EEPROM.h>
 //#include <ArduinoJson.h>
 #include <FS.h>
+#include <ArduinoJson.h>
 
 extern "C" {
 #include "user_interface.h"
 }
 
 // Debugausgaben kompilieren (1) oder nicht (0)
-#define DEBUG 0
+#define DEBUG 1
 
 #if (DEBUG == 0)
   #define sp(...)
