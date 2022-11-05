@@ -32,7 +32,7 @@ void setupMQTT()
 
 void sendMQTT() {
     sp("sendMQTT: ");    
-    char queryRealName[7][20] = {"Tagesverbrauch","Jahresverbrauch","Monatsverbrauch","Leistung","Maximal","Voltage","RSSI"};
+    char queryRealName[9][20] = {"Tagesverbrauch","Jahresverbrauch","Monatsverbrauch","Leistung","Maximal","Voltage","RSSI","Temperatur","Feuchtigkeit"};
     for( int i = 0; i < lenStore; i++)
     {
         for( int j = 0; j < (sizeof(queryRealName)/sizeof(queryRealName[0])); j++ )

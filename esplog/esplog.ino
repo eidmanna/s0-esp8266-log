@@ -45,12 +45,14 @@
 #include <FS.h>
 #include <ArduinoJson.h>
 
+#include "DHTesp.h" // Click here to get the library: http://librarymanager/All#DHTesp
+
 extern "C" {
 #include "user_interface.h"
 }
 
 // Debugausgaben kompilieren (1) oder nicht (0)
-#define DEBUG 1
+#define DEBUG 0
 
 #if (DEBUG == 0)
   #define sp(...)
@@ -62,6 +64,9 @@ extern "C" {
   #define sbeg(...) Serial.begin(__VA_ARGS__); while(!Serial)
 #endif
 
+// Define NodeMCU D3 pin to as temperature data pin of  DHT11
+#define DHTPIN 16     // Digital pin connected to the DHT sensor
+DHTesp dht;
 
 #define INT_PIN1 5      // Interruptpin für den S0 GPIO5 / D1 
 #define LED_PIN1 14     // LED GPIO 14 / D5
@@ -116,7 +121,7 @@ float offset = 0; // Zähleroffset
 bool sommerzeit;
 bool tickDetected = false;
 
-const int lenStore = 11;
+const int lenStore = 13;
 struct valueStore
 {
   byte id;

@@ -11,6 +11,7 @@
   "devDependencies": {
     "@smui/button": "^7.0.0-beta.0",
     "@smui/circular-progress": "^7.0.0-beta.0",
+    "@smui/data-table": "^7.0.0-beta.0",
     "@smui/icon-button": "^7.0.0-beta.0",
     "@smui/list": "^7.0.0-beta.0",
     "@smui/top-app-bar": "^7.0.0-beta.0",

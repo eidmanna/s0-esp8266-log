@@ -26,6 +26,11 @@ void loop()
         sendMQTT();
       #endif
     }
+
+    // every 60 sec
+    if( minute() % 2 == 0) {      
+        readDHT();      
+    }
     
     // every minute
     if( second() == 0 )

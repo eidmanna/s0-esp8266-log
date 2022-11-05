@@ -2,16 +2,13 @@
   import { onMount } from "svelte";
   import axios from "axios";
   import TopAppBar, { Row, Section, Title } from "@smui/top-app-bar";
-  import List, { Item, Text, PrimaryText, SecondaryText } from "@smui/list";
   import IconButton from "@smui/icon-button";
   import CircularProgress from "@smui/circular-progress";
-
-  import Button, { Label } from "@smui/button";
-
-  let clicked = 0;
+  import DataTable, { Head, Body, Row as RowT, Cell } from '@smui/data-table';
 
   let dataList;
 
+  // set for development only !!!!!
   // let server = "http://192.168.0.89/data";
 
   let server = "/data";
@@ -49,19 +46,31 @@
         </Section>
       </Row>
     </TopAppBar>
+    <p/>
     <div>
       <div>
         {#if dataList}
-          <List twoLine nonInteractive>
+        <DataTable table$aria-label="People list" style="max-width: 100%;">
+          <Head>
+            <RowT>
+              
+              <Cell>Name</Cell>
+              <Cell >Wert</Cell>
+              <Cell >Einheit</Cell>
+            </RowT>
+          </Head>
+          <Body>
             {#each dataList as data}
-              <Item>
-                <Text>
-                  <PrimaryText>{data.title}</PrimaryText>
-                  <SecondaryText>{data.value + "[" + data.unit + "]"}</SecondaryText>                  
-                </Text>
-              </Item>
-            {/each}
-          </List>
+            <RowT>
+              <Cell>{data.title}</Cell>
+              <Cell>{data.value}</Cell>
+              <Cell>{data.unit}</Cell>
+            </RowT> 
+            {/each}           
+          </Body>
+        </DataTable>
+
+          
         {:else}
           <div style="display: flex; justify-content: center">
             <CircularProgress

@@ -33,6 +33,7 @@ void setupWifi()
   spn(WiFi.localIP());
   sp("Wifi Signal: ");
   spn(WiFi.RSSI());
+  dht.setup(16, DHTesp::DHT22);
   flashLed(true);
 }
 
@@ -80,7 +81,7 @@ void setupNtp()
 
 void setupHttpServer()
 {
-  server.on("/", handleRoot);               // Startseite
+  server.on("/index.html", handleRoot);               // alte Startseite
   server.on("/V", handleJsonArgs);          // Anfrage von sonnenertrag.eu bearbeiten
   server.on("/data", handleJsonData);
   server.on("/ertrag.html", handleViewErtrag); // Tageserträge als Array ausgeben
@@ -101,7 +102,7 @@ void setupHttpServer()
 
   server.on("/upload", HTTP_POST, [](){}, handleFileUpload);   // SPIFFS upload
   
-  server.serveStatic("/index.html", SPIFFS, "/index.html");
+  server.serveStatic("/", SPIFFS, "/index.html");  // neue Startseite
   server.serveStatic("/index.js", SPIFFS, "/index.js");
 
   server.serveStatic("/screen.css", SPIFFS, "/screen.css");
@@ -161,6 +162,14 @@ void setupStructAusgabe()
   strcpy( ausgabe[10].realName, "Zaehlerstand");
   dtostrf(0, 2, 0, ausgabe[10].printValue);
   strcpy( ausgabe[10].unit, " kWh" );
+
+  strcpy( ausgabe[11].realName, "Temperatur");
+  dtostrf(0, 2, 0, ausgabe[11].printValue);
+  strcpy( ausgabe[11].unit, " °C" );
+
+  strcpy( ausgabe[12].realName, "Feuchtigkeit");
+  dtostrf(0, 2, 0, ausgabe[12].printValue);
+  strcpy( ausgabe[12].unit, " %" );
 }
 
 // ########################################################################################
