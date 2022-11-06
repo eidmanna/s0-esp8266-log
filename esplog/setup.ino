@@ -104,6 +104,7 @@ void setupHttpServer()
   
   server.serveStatic("/", SPIFFS, "/index.html");  // neue Startseite
   server.serveStatic("/index.js", SPIFFS, "/index.js");
+  server.serveStatic("/heatpump.svg", SPIFFS, "/heatpump.svg");
 
   server.serveStatic("/screen.css", SPIFFS, "/screen.css");
   server.serveStatic("/mobile.css", SPIFFS, "/mobile.css");

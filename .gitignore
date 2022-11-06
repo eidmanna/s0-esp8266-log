@@ -5,3 +5,4 @@ node_modules/*
 esplog/data/index.js
 esplog/data/index.html
 dist/*
+esplog/data/heatpump.svg
