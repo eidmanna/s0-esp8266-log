@@ -6,3 +6,4 @@ esplog/data/index.js
 esplog/data/index.html
 dist/*
 esplog/data/heatpump.svg
+tmplog/DHT_ESP8266/*

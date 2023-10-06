@@ -4,7 +4,8 @@
   import TopAppBar, { Row, Section, Title } from "@smui/top-app-bar";
   import IconButton from "@smui/icon-button";
   import CircularProgress from "@smui/circular-progress";
-  import DataTable, { Head, Body, Row as RowT, Cell } from '@smui/data-table';
+  import DataTable, { Head, Body, Row as RowT, Cell } from "@smui/data-table";
+  import Card, { Content } from "@smui/card";
 
   let dataList;
 
@@ -46,40 +47,63 @@
         </Section>
       </Row>
     </TopAppBar>
-    <p/>
+    <p />
     <div>
-      <div>
-        {#if dataList}
-        <DataTable table$aria-label="People list" style="max-width: 100%;">
-          <Head>
-            <RowT>
-              
-              <Cell>Name</Cell>
-              <Cell >Wert</Cell>
-              <Cell >Einheit</Cell>
-            </RowT>
-          </Head>
-          <Body>
-            {#each dataList as data}
-            <RowT>
-              <Cell>{data.title}</Cell>
-              <Cell>{data.value}</Cell>
-              <Cell>{data.unit}</Cell>
-            </RowT> 
-            {/each}           
-          </Body>
-        </DataTable>
-
-          
-        {:else}
-          <div style="display: flex; justify-content: center">
-            <CircularProgress
-              style="height: 32px; width: 32px;"
-              indeterminate
-            />
+      <Card variant="outlined">
+        <Content>
+          <div>
+            {#if dataList}
+              <DataTable table$aria-label="ESP list" style="width: 100%;">
+                <Head>
+                  <RowT>
+                    <Cell>Name</Cell>
+                    <Cell>Wert</Cell>
+                    <Cell>Einheit</Cell>
+                  </RowT>
+                </Head>
+                <Body>
+                  {#each dataList as data}
+                    <RowT>
+                      <Cell>{data.title}</Cell>
+                      <Cell>{data.value}</Cell>
+                      <Cell>{data.unit}</Cell>
+                    </RowT>
+                  {/each}
+                </Body>
+              </DataTable>
+            {:else}
+              <div style="display: flex; justify-content: center">
+                <CircularProgress
+                  style="height: 32px; width: 32px;"
+                  indeterminate
+                />
+              </div>
+            {/if}
           </div>
-        {/if}
-      </div>
+        </Content>
+      </Card>
+      <p />
+      <Card variant="outlined">
+        <Content>
+          <iframe
+            src="http://192.168.0.34:8082/echarts/index.html?preset=echarts.0.heatpump_power"
+            title="Heatpump"
+            name="heatpump"
+            style="width: 100%; height: 400px; border: 0;"
+          />
+        </Content>
+      </Card>
+      <p />
+      <Card variant="outlined">
+        <Content>
+          <iframe
+            src="http://192.168.0.34:8082/echarts/index.html?preset=echarts.0.pv_power"
+            title="PV"
+            name="pv"
+            style="width: 100%; height: 400px; border: 0;"
+          />
+        </Content>
+      </Card>
     </div>
   </div>
 </main>
